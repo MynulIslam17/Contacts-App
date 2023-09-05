@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import java.util.ArrayList;
@@ -79,27 +80,32 @@ public class MainActivity extends AppCompatActivity {
                         name=edName.getText().toString();
                         number=edNumber.getText().toString();
 
+                        //if name or number string is null then execute this one
+                         if(name.isEmpty() || number.isEmpty()){
+                            Toast.makeText(MainActivity.this,"Can't be empty",Toast.LENGTH_LONG).show();
+
+                         }
+
+                         //otherwise performe this one
+                        else {
+                             //put the information in hasmap
+                             map = new HashMap<>();
+                             map.put("Name", name);
+                             map.put("Number", number);
 
 
-                        //put the information in hasmap
-                        map= new HashMap<>();
-                        map.put("Name",name);
-                        map.put("Number",number);
+                             //then add it on arraylist
+                             list.add(map);
 
 
-
-                        //then add it on arraylist
-                        list.add(map);
-
-
-                        //creat object of base adapter
-                        MyAdapter adapter = new MyAdapter();
-                        lView.setAdapter(adapter);
+                             //creat object of base adapter
+                             MyAdapter adapter = new MyAdapter();
+                             lView.setAdapter(adapter);
 
 
+                             dialog.dismiss();
 
-
-                        dialog.dismiss();
+                         }
 
                     }
                 });
