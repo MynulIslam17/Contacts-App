@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                         name=edName.getText().toString();
                         number=edNumber.getText().toString();
 
-                        //if name or number string is null then execute this one
+                        //if name or number string is empty then execute this one
                          if(name.isEmpty() || number.isEmpty()){
                             Toast.makeText(MainActivity.this,"Can't be empty",Toast.LENGTH_LONG).show();
 
